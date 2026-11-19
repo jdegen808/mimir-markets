@@ -236,7 +236,7 @@ export function matchesFilter(file, filter) {
   if (basename.includes(filter)) return true;
   if (/[*?]/.test(filter)) {
     const regex = globToRegExp(normalizedFilter);
-    if (regex.test(normalizedFile)) return true;
+    if (regex.test(normalizedFilter)) return true;
     if (globToRegExp(filter).test(basename)) return true;
   }
   return false;
@@ -427,7 +427,7 @@ export function runNodeTests({
 
   let result;
   try {
-    result = spawn(process.exefPath, args, {
+    result = spawn(process.execPath, args, {
       cwd: root,
       env: environment,
       stdio: "inherit",
