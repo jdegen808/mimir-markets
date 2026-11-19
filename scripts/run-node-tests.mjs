@@ -236,7 +236,7 @@ export function matchesFilter(file, filter) {
   if (basename.includes(filter)) return true;
   if (/[*?]/.test(filter)) {
     const regex = globToRegExp(normalizedFilter);
-    if (regex.test(normalizedFilter)) return true;
+    if (regex.test(normalizedFile)) return true;
     if (globToRegExp(filter).test(basename)) return true;
   }
   return false;
